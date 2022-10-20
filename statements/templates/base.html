@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج شؤون المشرفين والمعلمين</title>
+    <center><h2>برنامج شؤون المشرفين والمعلمين</h2></center>
+    
+</head>
+<p><a href="{% url 'statements:index' %}">الصفحة الرئيسية</a></p>
+{% if user.is_authenticated %}
+مرحبا/ {{ user.first_name }} -
+<a href="{% url 'users:logout' %}">تسجيل الخروج</a>
+<p></p>
+<a href="{% url 'statements:teachers_name' %}">اسماء المعلمين</a> -
+<a href="{% url 'statements:leave' %}">اجازاتي</a>
+{% else %}
+<a href="{% url 'users:login' %}">تسجيل الدخول</a>
+{% endif %}
+<body>
+    <p></p>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

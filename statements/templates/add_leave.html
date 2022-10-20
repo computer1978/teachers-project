@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>اسم المعلم: {{ teacher }}</p>
+<p>الرقم العام: {{ teacher.general_id }}</p>
+<form action="{% url 'statements:add_leave' %}" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit">Submit</button>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+        <p>اسم المعلم: {{ teacher }}</p>
+        <p>اسم الحلقة: {{ teacher.halaqa_name }}</p>
+        <p>فئة الحلقة: {{ teacher.halaqa_type }}</p>
+    {% for vac in leave %}
+    <li>
+        <p>تاريخ المغادرة: {{ vac.date_of_leave }}</p>
+        <p>تاريخ العودة: {{ vac.date_of_return }}</p>
+        <p><a href="{% url 'statements:delete_leave' vac.id %}">Delete leave</a></p>
+    </li>
+    {% endfor %}
+</ul>
+
+
+<a href="{% url 'statements:add_leave' %}">طلب اجازة</a>
+{% endblock content %}

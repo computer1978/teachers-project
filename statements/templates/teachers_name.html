@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>الرقم العام</th>
+            <th>الرقم المالي</th>
+            <th>الاسم</th>
+            <th>الحلقة</th>
+            <th>الفئة</th>
+        </tr>
+        {% for item in teacher_names %}
+        <tr>
+            <td>{{ item.financial_id }}</td>
+            <td>{{ item.general_id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.halaqa_name }}</td>
+            <td>{{ item.halaqa_type }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
